@@ -85,8 +85,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean> 
      -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/task_management"></property>
 		<property name="username" value="root"></property>

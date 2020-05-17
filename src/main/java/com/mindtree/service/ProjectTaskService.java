@@ -5,6 +5,7 @@ import java.util.List;
 import com.mindtree.pojo.Employee;
 import com.mindtree.pojo.Project;
 
+@Component
 public interface ProjectTaskService {
 
 	public void save(Project project);

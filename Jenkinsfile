@@ -3,8 +3,8 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
-
-        checkout scm
+	git credentialsId: 'GitHubCredentials', url: 'https://github.com/jtakyar/AssigningTask'
+       
     }
 
     stage('Build image') {

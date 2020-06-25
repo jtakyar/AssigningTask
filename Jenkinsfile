@@ -1,33 +1,20 @@
 node {
-    def app
-
-    stage('Clone repository') {
+       stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
 	git credentialsId: 'GitHubCredentials', url: 'https://github.com/jtakyar/AssigningTask'
        
     }
 
     stage('Build image') {
-        /* This builds the actual image */
-
-        app = docker.build("jtakyar/mydockerimgs")
+	  sh 'docker build -t jtakyar\mydockerimgs .'
+	    /* This builds the actual image */        
     }
 
-    stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
-        }
-    }
-
+    
     stage('Push image') {
-        /* 
-			You would need to first register with DockerHub before you can push images to your account
-		*/
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-            } 
-                echo "Trying to Push Docker Build to DockerHub"
-    }
-}
+        withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+        sh "docker login -u jtakyar -p ${docker-pwd}"
+		 }
+	 sh 'docker push jtakyar\mydockerimgs'
+	     } 
+ }

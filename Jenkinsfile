@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-	  sh 'docker build -t jtakyar\mydockerimgs .'
+	  sh 'docker build -t jtakyar/mydockerimgs .'
 	    /* This builds the actual image */        
     }
 

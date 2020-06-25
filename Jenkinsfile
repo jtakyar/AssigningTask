@@ -1,7 +1,7 @@
 node {
        stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
-	git credentialsId: 'GitHubCredentials', url: 'https://github.com/jtakyar/AssigningTask'
+	git credentialsId: 'GitHubCredentials', url: 'https://github.com/jtakyar/AssigningTask.git'
        
     }
 

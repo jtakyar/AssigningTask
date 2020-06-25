@@ -4,6 +4,11 @@ node {
 	git credentialsId: 'GitHubCredentials', url: 'https://github.com/jtakyar/AssigningTask.git'
        
     }
+	stage('Mvn Package'){
+     def mvnHome = tool name: 'localmaven', type: 'maven'
+     def mvnCMD = "${mvnHome}/bin/mvn"
+     sh "${mvnCMD} clean package"
+   }
 	 
     stage('Build image') {
 	  sh 'docker build -t jtakyar/mydockerimgs .'

@@ -13,7 +13,7 @@ node {
     
     stage('Push image') {
 	    withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
- 	       sh "docker login -u jtakyar -p ${docker-pwd}"
+ 	       sh "docker login -u jtakyar -p ${dockerHubPwd}"
 		 }
 	 sh 'docker push jtakyar/mydockerjenkinsimgs'
 	     } 

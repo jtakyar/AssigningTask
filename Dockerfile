@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+WORKDIR /tmp/docker
 RUN echo 'debconf debconf/frontend select Noninteractive'| debconf-set-selections
 RUN apt-get -y update && apt-get -y upgrade && apt-get -y install git
 RUN apt-get -y install openjdk-8-jdk
@@ -11,6 +12,7 @@ RUN cd AssigningTask && mvn clean install -Dmaven.test.skip=true
 RUN mkdir /usr/local/tomcat
 RUN pwd
 ADD https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.33/bin/apache-tomcat-8.5.33.tar.gz /tmp/docker/tomcat.tar.gz
+RUN pwd
 RUN tar xvfz tomcat.tar.gz
 RUN pwd
 RUN ls -a

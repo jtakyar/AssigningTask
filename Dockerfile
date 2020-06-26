@@ -1,5 +1,4 @@
 FROM ubuntu:latest
-WORKDIR /tmp/docker
 RUN echo 'debconf debconf/frontend select Noninteractive'| debconf-set-selections
 RUN apt-get -y update && apt-get -y upgrade && apt-get -y install git
 RUN apt-get -y install openjdk-8-jdk

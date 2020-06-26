@@ -11,7 +11,7 @@ node {
    }
 	 
     stage('Build image') {
-	  sh 'docker build -t jtakyar/mydockerimgs .'
+	  sh 'docker build -t jtakyar/mydockerjenkinsimgs .'
 	    /* This builds the actual image */        
     }
 
@@ -20,6 +20,6 @@ node {
         withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
         sh "docker login -u jtakyar -p ${docker-pwd}"
 		 }
-	 sh 'docker push jtakyar/mydockerimgs'
+	 sh 'docker push jtakyar/mydockerjenkinsimgs'
 	     } 
  }

@@ -21,4 +21,3 @@ EXPOSE 8181
 RUN pwd
 RUN cp /tmp/docker/AssigningTask/target/Spring201-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/Spring201-0.0.1-SNAPSHOT.war
 CMD /usr/local/tomcat/bin/catalina.sh run
-/tmp/docker/AssigningTask/

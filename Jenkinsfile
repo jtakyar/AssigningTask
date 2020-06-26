@@ -17,4 +17,8 @@ node {
 		 }
 	 sh 'docker push jtakyar/mydockerjenkinsimgs'
 	     } 
+   stage('Run Container on local server'){
+     sh 'docker run -p 8181:8181 -d --name my-webapp jtakyar/mydockerjenkinsimgs'
+     
+     }
  }

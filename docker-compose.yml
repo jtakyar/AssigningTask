@@ -1,23 +1,20 @@
 version: '3'
-
 volumes:
-   db-data: {}
+  db-data: {}
         
 services:
- 
   db:
-   image: mysql:5.7.15 
-   ports:
-     - 3306:3306
-   environment:
+    image: mysql:5.7.15 
+    ports:
+      - 3306:3306
+    environment:
      MYSQL_ROOT_PASSWORD: root
-   volumes:
-     - db-data:/var/lib/mysql
-     - ./DB_Scripts.sql:/docker-entrypoint-initdb.d/DB_Scripts.sql      
-
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./DB_Scripts.sql:/docker-entrypoint-initdb.d/DB_Scripts.sql      
   webapp:
-   build: ./
-   ports:
-     - 8181:8181
-   links:
-     - db
+    build: ./
+    ports:
+      - 8181:8181
+    links:
+      - db

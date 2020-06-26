@@ -6,6 +6,7 @@ node {
     }
 		 
     stage('Build image') {
+	  sh 'whoami'
 	  sh 'docker build -t jtakyar/mydockerjenkinsimgs .'
 	    /* This builds the actual image */        
     }

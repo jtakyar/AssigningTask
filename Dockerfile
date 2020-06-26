@@ -14,5 +14,5 @@ RUN pwd
 RUN ls -a
 RUN cp -Rv /tmp/docker/apache-tomcat-8.5.33/* /usr/local/tomcat/
 EXPOSE 8181
-RUN cp /tmp/docker/AssigningTask/target/Spring201-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/Spring201-0.0.1-SNAPSHOT.war
+RUN cp /AssigningTask/target/Spring201-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/Spring201-0.0.1-SNAPSHOT.war
 CMD /usr/local/tomcat/bin/catalina.sh run

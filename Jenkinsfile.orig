@@ -6,7 +6,13 @@ node {
     }
 		 
     stage('Build image') {
+	  sh 'whoami'
+<<<<<<< HEAD
 	  sh 'docker build -t jtakyar/mydockerjenkinsimgs:v1.2 .'
+=======
+	  sh 'docker build -t jtakyar/mydockerjenkinsimgs:v1.0 .'
+>>>>>>> 52ad16d85eef919d1eb1eaed14136faf6c2d38fe
+	    /* This builds the actual image */        
     }
 
     
@@ -14,9 +20,17 @@ node {
 	    withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
  	       sh "docker login -u jtakyar -p ${dockerHubPwd}"
 		 }
+<<<<<<< HEAD
 	 sh 'docker push jtakyar/mydockerjenkinsimgs:v1.2 '
 	     } 
    stage('Run Container on local server'){
      sh 'docker run -p 8181:8181 -d --name my-webapp-1 jtakyar/mydockerjenkinsimgs:v1.2 '
+=======
+	 sh 'docker push jtakyar/mydockerjenkinsimgs:v1.0 '
 	     } 
+   stage('Run Container on local server'){
+     sh 'docker run -p 8181:8181 -d --name my-webapp jtakyar/mydockerjenkinsimgs:v1.0 '
+>>>>>>> 52ad16d85eef919d1eb1eaed14136faf6c2d38fe
+     
+     }
  }
